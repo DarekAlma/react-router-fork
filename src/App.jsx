@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './App.css'
 import {Home,Contact,Login,Overview} from './pages'
 import { AuthProvider } from './Context/AuthContext';
+import { ProtectedRoute } from './Components/ProtectedRoutes';
+
 
 function App() {
   return (

@@ -9,7 +9,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login2 = (email, password) => {
+  const logincito = (email, password) => {
     // Lógica de autenticación
     if (email === 'admin@admin.com' && password === 'admin') {
       setUser({ email });
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login2, logout2 }}>
+    <AuthContext.Provider value={{ user, logincito, logout2 }}>
       {children}
     </AuthContext.Provider>
   );

@@ -4,13 +4,13 @@ import { useAuth } from '../../Context/AuthContext';
 
 
 const Login = () => {
-    const { login2 } = useAuth();
+    const {logincito } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      login2(email, password);
+      logincito(email, password);
       setEmail('');
       setPassword('');   
     };
