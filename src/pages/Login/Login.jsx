@@ -1,19 +1,31 @@
-import React, { useState, useContext } from 'react';
-import { NavLink, Navigate } from 'react-router-dom'
+import React, { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../Context/AuthContext';
 
 
 const Login = () => {
-    const {logincito } = useAuth();
+    const {user,logincito } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); 
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       logincito(email, password);
       setEmail('');
-      setPassword('');   
+      setPassword('');
+      navigate('/');   
     };
+
+    
+    useEffect(() => {
+        // Redirigir a la página principal después del inicio de sesión si el usuario está autenticado
+        if (user) {
+         navigate('/');
+        }
+    }, [user, navigate]); // Se ejecuta cuando cambia 'user' o 'navigate'
+
+    
 
   return (
     <div>
@@ -39,18 +51,6 @@ const Login = () => {
             <button type="submit">Iniciar Sesión</button>
         </form>
         <h1>Login</h1>
-        {/*Navegacion entre paginas*/}
-        <NavLink to="/">
-            Home
-        </NavLink>
-        <p>/</p>
-        <NavLink to="/contact">
-            contact
-        </NavLink>
-        <p>/</p>
-        <NavLink to="/overview">
-            overview
-        </NavLink>
     </div>
   );
 }

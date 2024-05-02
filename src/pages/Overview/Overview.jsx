@@ -13,9 +13,6 @@ const Overview = () => {
     <div>
         <h1>Overview</h1>
         {/*Navegacion entre paginas*/}
-        <NavLink to="/login">
-            Login
-        </NavLink>
         <p>/</p>
         <NavLink to="/contact">
             contact

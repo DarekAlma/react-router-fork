@@ -14,9 +14,6 @@ const Home = () => {
     <div>
         <h1>Home</h1>
         {/*Navegacion entre paginas*/}
-        <NavLink to="/login">
-            Login
-        </NavLink>
         <p>/</p>
         <NavLink to="/contact">
             contact
