@@ -2,6 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Contact = () => {
+
+  const handleLogout = () => {
+    logoutcito();
+  };
+
   return (
     <div>
         <h1>Contact</h1>
@@ -17,6 +22,9 @@ const Contact = () => {
         <NavLink to="/overview">
             overview
         </NavLink>
+
+        <button onClick={handleLogout}>Logout</button>
+        
     </div>
   )
 }

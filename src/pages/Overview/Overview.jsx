@@ -2,6 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Overview = () => {
+
+  const handleLogout = () => {
+    logoutcito();
+  };
+
   return (
     <div>
         <h1>Overview</h1>
@@ -17,6 +22,9 @@ const Overview = () => {
         <NavLink to="/">
             home
         </NavLink>
+
+        <button onClick={handleLogout}>Logout</button>
+        
     </div>
   )
 }

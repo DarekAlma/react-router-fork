@@ -1,8 +1,17 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css'
 import {Home,Contact,Login,Overview} from './pages'
-import { AuthProvider } from './Context/AuthContext';
-import { ProtectedRoute } from './Components/ProtectedRoutes';
+import { AuthProvider, useAuth } from './Context/AuthContext';
+
+const AuthProtection = ({ children }) => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 
 function App() {
@@ -10,12 +19,12 @@ function App() {
     <AuthProvider>
       <Router>
        <Routes>    
-        <Route path="/" element={<Home/>} />
-        <Route path="/overview" element={<Overview/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/contact" element={<Contact/>} />
+        <Route path="/" element={<AuthProtection><Home /></AuthProtection>} />
+        <Route path="/overview" element={<AuthProtection><Overview /></AuthProtection>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<AuthProtection><Contact /></AuthProtection>} />
         <Route path="/404" element={<div>Not found</div>} />
-        <Route path= "*" element={<Navigate to="/404" replace/>} />    
+        <Route path="*" element={<Navigate to="/404" replace />} />          
        </Routes>   
      </Router>
     </AuthProvider>
