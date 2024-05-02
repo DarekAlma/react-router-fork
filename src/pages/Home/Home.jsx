@@ -1,7 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../Context/AuthContext';
 
 const Home = () => {
+
+  const {logoutcito} =useAuth();
 
   const handleLogout = () => {
     logoutcito();
@@ -22,7 +25,7 @@ const Home = () => {
         <NavLink to="/overview">
             overview
         </NavLink>
-        
+
         <button onClick={handleLogout}>Logout</button>
 
     </div>

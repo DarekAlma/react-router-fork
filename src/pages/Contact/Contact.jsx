@@ -1,7 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../Context/AuthContext';
 
 const Contact = () => {
+
+  const {logoutcito} =useAuth();
 
   const handleLogout = () => {
     logoutcito();
@@ -24,7 +27,7 @@ const Contact = () => {
         </NavLink>
 
         <button onClick={handleLogout}>Logout</button>
-        
+
     </div>
   )
 }
