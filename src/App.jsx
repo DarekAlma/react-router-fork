@@ -35,7 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<AuthProtection><Contact/></AuthProtection>} />
         <Route path="/404" element={<div>Not found</div>} />
-        <Route path="*" element={<Navigate to="/404" replace />} />          
+        <Route path="*" element={<Navigate to="/" replace />} />          
        </Routes>   
      </AuthProvider>
     </Router>
